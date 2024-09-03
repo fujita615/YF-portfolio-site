@@ -1,0 +1,27 @@
+@use '../../Foundation';
+
+.c-textarea {
+	resize: none;
+	padding: 10px 15px;
+	width: 100%;
+	color: inherit;
+	background-color: transparent;
+	border-radius: 8px;
+	border: 1px solid;
+	&::placeholder {
+		color: rgba(Foundation.$base_gray, 0.7);
+	}
+	&:focus,
+	&:hover {
+		background-color: rgba(Foundation.$base_gray, 0.05);
+	}
+	&:focus-visible {
+		background-color: Foundation.$base_white;
+		outline: 5px solid;
+	}
+
+	&.c-textarea--contact {
+		height: 50vh;
+		border: none;
+	}
+}

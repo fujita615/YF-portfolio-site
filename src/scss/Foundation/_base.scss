@@ -1,0 +1,48 @@
+@use 'font';
+@use 'color';
+
+/* base */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-size: 62.5%;
+}
+body {
+	color: color.$base_black;
+	font-family: font.$e-family, font.$j-family;
+	font-size: 1.6rem;
+}
+
+ul {
+	margin: 0;
+	padding-left: 0;
+	list-style: none;
+}
+p {
+	line-height: 1.8;
+}
+figure {
+	margin: 0;
+}
+img {
+	max-width: 100%;
+}
+a {
+	text-decoration: none;
+}
+a,
+input,
+textarea {
+	transition: all 0.15s ease-in-out;
+}
+input[type='submit']:hover {
+	cursor: pointer;
+}
+li {
+	font-family: font.$j-family;
+}

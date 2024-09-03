@@ -1,0 +1,15 @@
+@use '../../Foundation';
+
+.c-br {
+	display: none;
+	&.c-br--tab-pc {
+		@include Foundation.mq('tab-pc') {
+			display: block;
+		}
+	}
+	&.c-br--pc {
+		@include Foundation.mq('pc') {
+			display: block;
+		}
+	}
+}

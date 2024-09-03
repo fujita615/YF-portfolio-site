@@ -1,0 +1,15 @@
+@use '../../Foundation';
+
+.p-standard {
+	padding: 100px 0 60px;
+	background-color: Foundation.$base_white;
+	font-family: Foundation.$j-family;
+	&__container {
+		margin: 50px auto;
+
+		width: 90%;
+		@include Foundation.mq('tab-pc') {
+			width: 80%;
+		}
+	}
+}

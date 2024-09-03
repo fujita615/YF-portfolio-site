@@ -1,0 +1,93 @@
+@use '../../Foundation';
+
+.c-nav {
+	display: flex;
+	&.c-nav--sns {
+		flex-wrap: wrap;
+		font-size: 3.2rem;
+	}
+	&__item {
+		display: block;
+		margin-left: 20px;
+		&--first-margin-0:first-child {
+			margin-left: 0;
+		}
+	}
+
+	&__link:link {
+		position: relative;
+		color: inherit;
+		font-size: inherit;
+		&.c-nav__link--underline {
+			&::after {
+				position: absolute;
+				left: 0;
+				content: '';
+				width: 100%;
+				height: 2px;
+				bottom: -1px;
+				transform: scale(0, 1);
+				transform-origin: center top; /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の右端*/
+				transition: transform 0.3s; /*変形の時間*/
+			}
+			@media (hover: hover) {
+				&:hover::after {
+					transform: scale(1, 1); /*ホバー後、x軸方向に1（相対値）伸長*/
+				}
+			}
+			@media (hover: none) {
+				&:active::after {
+					transform: scale(1, 1); /*クリック後、x軸方向に1（相対値）伸長*/
+				}
+			}
+		}
+		&.c-nav__link--header {
+			font-size: 2.4rem;
+			&::after {
+				background-color: Foundation.$base_gray;
+			}
+
+			@media (hover: hover) {
+				&:hover,
+				&:focus {
+					color: Foundation.$base_gray;
+				}
+			}
+			@media (hover: none) {
+				&:active,
+				&:focus {
+					color: Foundation.$base_gray;
+				}
+			}
+		}
+		&.c-nav__link--footer {
+			@media (hover: hover) {
+				&:hover,
+				&:focus {
+					color: Foundation.$secondary;
+				}
+			}
+			@media (hover: none) {
+				&:active,
+				&:focus {
+					color: Foundation.$secondary;
+				}
+			}
+		}
+		&.c-nav__link--about-sns {
+			color: Foundation.$primary;
+			@media (hover: hover) {
+				&:hover,
+				&:focus {
+					color: Foundation.$secondary_contrast;
+				}
+			}
+			@media (hover: none) {
+				&:active,
+				&:focus {
+					color: Foundation.$secondary_contrast;
+				}
+			}
+		}
+	}
+}

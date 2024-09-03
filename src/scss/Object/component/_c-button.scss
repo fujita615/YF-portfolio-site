@@ -1,0 +1,93 @@
+@use '../../Foundation';
+
+.c-button {
+	border: none;
+	display: inline-block;
+	line-height: 15px;
+	padding: 18px 30px 17px;
+	border-radius: 10px;
+	cursor: pointer;
+	user-select: none;
+	touch-action: manipulation;
+
+	box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+	position: relative;
+	overflow: hidden;
+
+	&.c-button--form {
+		color: Foundation.$base_white;
+		background: Foundation.$base_black;
+		//hover時に現れる背景色
+		&::after {
+			background-color: Foundation.$base_white;
+		}
+	}
+
+	&__text {
+		position: relative;
+		transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+		z-index: 40;
+	}
+	//ボタンクリック時の影の変化
+	&:active {
+		transform: translateY(4px);
+		box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+	}
+
+	//hover時の文字
+	&__hover-text {
+		display: block;
+		position: absolute;
+		bottom: 0;
+		transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+		z-index: 100;
+		opacity: 0;
+		top: 50%;
+		left: 50%;
+		transform: translateY(225%) translateX(-50%);
+		height: 14px;
+		line-height: 13px;
+		font-weight: bold;
+		font-size: 2rem;
+
+		&.c-button__hover-text--form {
+			color: Foundation.$base_black;
+		}
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: -50%;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transform-origin: bottom center;
+		transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+		transform: skewY(9.3deg) scaleY(0);
+		z-index: 50;
+	}
+	@media (hover: none) {
+		&:active::after {
+			transform-origin: bottom center;
+			transform: skewY(9.3deg) scaleY(2);
+		}
+		&:active .c-button__hover-text {
+			transform: translateX(-50%) translateY(-50%);
+			opacity: 1;
+			transition: all 1ms cubic-bezier(0.48, 0, 0.12, 1);
+		}
+	}
+	//hover挙動があるデバイスのみの装飾
+	@media (hover: hover) {
+		&:hover::after {
+			transform-origin: bottom center;
+			transform: skewY(9.3deg) scaleY(2);
+		}
+		&:hover .c-button__hover-text {
+			transform: translateX(-50%) translateY(-50%);
+			opacity: 1;
+			transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+		}
+	}
+}

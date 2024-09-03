@@ -1,0 +1,34 @@
+@use '../../Foundation';
+
+.p-about {
+	background-color: Foundation.$base_white;
+
+	&__container {
+		@include Foundation.mq('tab-pc') {
+			display: flex;
+			align-items: flex-start;
+			margin: 0 -5vw;
+		}
+	}
+	&__sub-container {
+		display: flex;
+		flex-direction: column;
+		@include Foundation.mq('tab-pc') {
+			width: 50%;
+		}
+	}
+	&__article {
+		margin-bottom: 30px;
+		@include Foundation.mq('tab-pc') {
+			padding: 0 5vw;
+		}
+	}
+
+	&__skill {
+		@include Foundation.mq('pc') {
+			display: flex;
+			align-items: flex-start;
+			justify-content: left;
+		}
+	}
+}

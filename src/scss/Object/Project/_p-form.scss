@@ -1,0 +1,26 @@
+@use '../../Foundation';
+
+.p-form {
+	width: 100%;
+
+	@include Foundation.mq('pc') {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__input {
+		width: 100%;
+		position: relative;
+		margin-bottom: 10px;
+	}
+
+	&__input-icon {
+		position: absolute;
+		top: 12px;
+		left: 16px;
+	}
+	&__textarea {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+}

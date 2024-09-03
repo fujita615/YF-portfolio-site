@@ -1,0 +1,50 @@
+@use '../Foundation';
+
+.l-footer {
+	background: rgba(Foundation.$base_white, 0.4); /*透過させる*/
+	padding: 60px 0 30px;
+	margin-top: auto;
+
+	&__nav {
+		display: flex;
+		justify-content: center;
+		align-items: last baseline;
+		margin-bottom: 5px;
+		font-size: 1.9rem;
+		@include Foundation.mq('tab-pc') {
+			margin-bottom: 10px;
+		}
+	}
+	&__snslink {
+		margin-bottom: 0;
+	}
+
+	&__info {
+		@include Foundation.mq('tab-pc') {
+			display: flex;
+			align-items: flex-end;
+			flex-direction: reverse;
+			justify-content: center;
+		}
+	}
+	&__copyright {
+		text-align: center;
+	}
+	&__dot {
+		display: none;
+
+		@include Foundation.mq('tab-pc') {
+			display: block;
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+	}
+	&__policy {
+		font-weight: 900;
+		text-align: center;
+		margin-bottom: 3px;
+		@include Foundation.mq('tab-pc') {
+			margin-bottom: 0;
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+  //eslintとtsc（型チェックに使用）用設定
+      "include": [
+    "src/ts/**/*.ts"
+    ],
+
+  "compilerOptions": {
+    // ソースマップを有効化
+    "sourceMap": true,
+    // TSはECMAScript 5に変換
+    "target": "ES6",
+    // TSのモジュールはES Modulesとして出力
+    "module": "ES2015",
+    // 型チェックを厳密モードに設定
+    "strict": true,
+    //型チェック時にデフォルトインポート文がなくてもをエラーにしないよう設定
+    "allowSyntheticDefaultImports": true
+  }
+}

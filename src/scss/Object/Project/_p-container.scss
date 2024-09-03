@@ -1,0 +1,11 @@
+@use '../../Foundation';
+
+.p-container {
+	max-width: Foundation.$max;
+	margin: 0 auto;
+	padding: 0 20px;
+
+	@include Foundation.mq('tab-pc') {
+		padding: 0 40px;
+	}
+}

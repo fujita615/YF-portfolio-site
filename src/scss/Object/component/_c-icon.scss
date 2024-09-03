@@ -1,0 +1,11 @@
+@use '../../Foundation';
+.c-icon {
+	display: block;
+
+	&.c-icon--footer {
+		width: 60px;
+		@include Foundation.mq('tab-pc') {
+			width: 120px;
+		}
+	}
+}

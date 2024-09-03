@@ -1,0 +1,9 @@
+{
+  //typescript用eslint設定
+  //tsconfig.jsonを継承
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/ts/*.ts",
+    "eslint.config.mjs"
+  ],
+}

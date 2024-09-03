@@ -1,0 +1,205 @@
+@use '../../Foundation';
+////////////////////////
+/* アニメーションの開始時間*/
+////////////////////////
+.is-delay05 {
+	animation-delay: 0.5s;
+}
+.is-delay10 {
+	animation-delay: 1s;
+}
+.is-delay15 {
+	animation-delay: 1.5s;
+}
+.is-delay20 {
+	animation-delay: 2s;
+}
+
+////////////////////
+/*要素がゆっくり出現*/
+///////////////////
+.u-fade {
+	opacity: 0;
+	animation-name: fade;
+	animation-duration: 5s;
+	animation-fill-mode: forwards;
+}
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+///////////////////
+/*要素が上がって出現*/
+////////////////////
+.u-fade--up {
+	opacity: 0;
+	&.js-fade--up {
+		animation-name: fadeUp;
+		animation-duration: 5s;
+		animation-fill-mode: forwards;
+		opacity: 0;
+	}
+	@keyframes fadeUp {
+		from {
+			opacity: 0;
+			transform: translateY(100px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+}
+
+/////////////////////////////////////////////////
+/* sectionを区切る上ラインが左から伸びてタイトルが出現 */
+/////////////////////////////////////////////////
+.u-line {
+	position: relative;
+	opacity: 1;
+
+	/*上ライン（擬似要素）*/
+	&::before {
+		position: absolute;
+		content: '';
+		width: 0;
+		height: 1px;
+		background: Foundation.$base_black;
+		top: 0;
+		left: 0;
+	}
+	&.js-line--draw::before {
+		animation: lineDraw 2s linear 0s forwards;
+	}
+	/*ライン下のタイトルが遅れて出現する*/
+	&.js-line--draw .u-line__under {
+		animation: lineUnder 0.5s linear 1.5s forwards;
+		opacity: 0;
+	}
+}
+@keyframes lineDraw {
+	0% {
+		width: 0%;
+	}
+	100% {
+		width: 100%;
+	}
+}
+
+@keyframes lineUnder {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/////////////////////////
+/* 要素が前回転して現れる */
+////////////////////////
+.u-flip {
+	opacity: 0;
+
+	&.js-flip--forward-rotation {
+		animation-name: flipforwardRotation;
+		animation-duration: 2s;
+		animation-fill-mode: forwards;
+		opacity: 0;
+	}
+}
+@keyframes flipforwardRotation {
+	from {
+		transform: perspective(2500px) rotateX(100deg);
+		opacity: 0;
+	}
+
+	to {
+		transform: perspective(2500px) rotateX(0);
+		opacity: 1;
+	}
+}
+
+///////////////////////////////
+/*背景色が伸びて出現 右ver 左ver*/
+///////////////////////////////
+/*右から*/
+.u-bg-right {
+	position: relative;
+	overflow: hidden; /*　はみ出た色要素を隠す　*/
+	&.js-bg-right--extend::before {
+		animation-name: bgRightExtend;
+		animation-duration: 2s;
+		animation-fill-mode: forwards;
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: Foundation.$base_beige;
+	}
+}
+@keyframes bgRightExtend {
+	0% {
+		transform-origin: right;
+		transform: scaleX(0);
+	}
+	100% {
+		transform-origin: right;
+		transform: scaleX(1);
+	}
+}
+
+/*左から*/
+.u-bg-left {
+	position: relative;
+	overflow: hidden; /*　はみ出た色要素を隠す　*/
+	&.js-bg-left--extend::before {
+		animation-name: bgLeftExtend;
+		animation-duration: 5s;
+		animation-fill-mode: forwards;
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: Foundation.$base_white;
+	}
+}
+@keyframes bgLeftExtend {
+	0% {
+		transform-origin: left;
+		transform: scaleX(0);
+	}
+	100% {
+		transform-origin: left;
+		transform: scaleX(1);
+	}
+}
+
+///////////////////////////
+/*要素にゆっくりピントが合う*/
+///////////////////////////
+.u-focus {
+	opacity: 0;
+	&.js-focus--match {
+		animation-name: focusMatch;
+		animation-duration: 1s;
+		animation-fill-mode: forwards;
+	}
+}
+@keyframes focusMatch {
+	from {
+		filter: blur(10px);
+		transform: scale(1.02);
+		opacity: 0;
+	}
+
+	to {
+		filter: blur(0);
+		transform: scale(1);
+		opacity: 1;
+	}
+}

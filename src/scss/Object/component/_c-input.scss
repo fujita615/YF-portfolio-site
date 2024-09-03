@@ -1,0 +1,22 @@
+@use '../../Foundation';
+
+.c-input {
+	width: 100%;
+	padding: 10px 15px;
+	background-color: transparent;
+	border-radius: 7px;
+	border: 1px solid;
+	color: inherit;
+	&::placeholder {
+		color: rgba(Foundation.$base_gray, 0.7);
+	}
+
+	&:focus-visible {
+		outline: 4px solid;
+	}
+
+	&.c-input--contact {
+		padding-left: 40px;
+		border: none;
+	}
+}

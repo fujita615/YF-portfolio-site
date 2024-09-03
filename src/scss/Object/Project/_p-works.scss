@@ -1,0 +1,37 @@
+@use '../../Foundation';
+
+.p-works {
+	&__container {
+		display: flex;
+		justify-content: flex-start;
+		padding-top: 40px;
+		padding-left: 40px;
+		overflow: scroll;
+	}
+	&__card {
+		flex-shrink: 0;
+		position: relative;
+		width: 103vw;
+		margin-bottom: 50px;
+		margin-right: 50px;
+		@include Foundation.mq('tab') {
+			max-width: Foundation.$sp;
+			margin-right: 100px;
+		}
+		@include Foundation.mq('pc') {
+			width: 73vw;
+			margin-right: 100px;
+		}
+	}
+	&__figure {
+		margin-bottom: 40px;
+	}
+	&__paragraph {
+		@media (hover: hover) {
+			display: none;
+		}
+		@media (hover: none) {
+			display: block;
+		}
+	}
+}

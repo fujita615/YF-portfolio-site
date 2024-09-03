@@ -1,0 +1,26 @@
+@use '../../Foundation';
+
+.p-hero {
+	background: rgba(#fff, 0.5); /*透過*/
+	padding: 100px 0 60px;
+	color: Foundation.$primary_contrast;
+	@include Foundation.mq('tab-pc') {
+		background: rgba(0, 0, 0, 0); /*透過無し*/
+	}
+	&__container {
+		margin-top: 50px;
+	}
+
+	&__title {
+		margin-top: 0;
+		margin-bottom: 25px;
+		@include Foundation.mq('tab-pc') {
+			margin-bottom: 40px;
+		}
+	}
+
+	&__paragraph {
+		font-size: 1.92rem;
+		margin-bottom: 30px;
+	}
+}

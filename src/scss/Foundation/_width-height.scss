@@ -1,0 +1,13 @@
+@use './base';
+
+// メディアクエリ用画面サイズ変数
+// sp: 768px未満　tab: 1024px未満
+$sp: 48em;
+$tab: 64em;
+$points: (
+	'tab-pc': 'screen  and (min-width: #{$sp})',
+	'tab': 'screen  and (min-width: #{$sp}) and (max-width: #{$tab})',
+	'pc': 'screen and (min-width: #{$tab})'
+);
+//最大サイズ
+$max: 1280px;

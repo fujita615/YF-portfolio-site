@@ -1,0 +1,16 @@
+@use '../../Foundation';
+
+.c-label {
+	&.c-label--vertical {
+		position: absolute;
+		font-size: 1.6rem;
+		top: 0;
+		left: calc(100% + 3rem);
+		transform-origin: top left;
+		transform: rotate(90deg);
+		@include Foundation.mq('tab-pc') {
+			font-size: 2.4rem;
+			left: calc(100% + 5rem);
+		}
+	}
+}

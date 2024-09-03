@@ -1,0 +1,14 @@
+@use '../../Foundation';
+
+.p-contact {
+	background-color: Foundation.$base_beige;
+	padding-top: 100px;
+	padding-bottom: 60px;
+	&__container {
+		margin: auto;
+		max-width: 90%;
+		@include Foundation.mq('tab-pc') {
+			max-width: 60%;
+		}
+	}
+}
