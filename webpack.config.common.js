@@ -2,11 +2,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   context: path.join(__dirname,"src"), //path指定の起点 
-  entry: [`./index.js`,  // 生成の大元となるJavaScriptファイル（エントリーポイント）
+  entry: [`./index.js` // 生成の大元となるJavaScriptファイル（エントリーポイント）
   ],
   // ファイルの出力設定
   output: {
@@ -17,6 +19,39 @@ module.exports = {
   },
   module: {
     rules: [
+      
+      {//cssファイルへの設定（sassファイルをjsファイルへバンドル/sourceMap利用）
+        test: /\.(sass|scss|css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              //css内のurlもバンドルに含める（画像の依存解決）
+              url: true,
+              sourceMap: true,
+              importLoaders: 2
+            }
+          },
+          {
+          loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              postcssOptions: {
+                // ベンダープレフィックスの自動付与
+                plugins: [require('autoprefixer')({ grid: true })],
+              },
+            },
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+    
       {//画像ファイル処理設定
         test: /\.(gif|png|jp?g|svg)$/,
         type: 'asset',
@@ -67,6 +102,9 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery'
     }),
+    new MiniCssExtractPlugin(),
+    new RemoveEmptyScriptsPlugin(),
+    
   ],
 
   resolve: {
@@ -88,5 +126,12 @@ module.exports = {
     performance: {
       maxAssetSize: 500000,
       maxEntrypointSize: 500000,
+  },
+      optimization: {
+    minimize: true,
+        minimizer: [
+      //cssファイルを圧縮するプラグイン
+      new CssMinimizerPlugin(),
+    ],
   },
 };

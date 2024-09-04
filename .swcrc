@@ -1,0 +1,25 @@
+{
+//swcの設定（defaultに上書きする部分）
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "decorators": true,
+      "dynamicImport": true
+    },
+    "transform": {
+      "useDefineForClassFields": false
+    }
+  },
+  "env": {
+    // 対象ブラウザ
+    "targets": [
+    "last 2 versions",
+    "android >= 4",
+    "iOS >= 10",
+    "not dead"
+  ],
+    "mode": "entry",
+    "coreJs": "3.38.1"
+  },
+    "minify": true
+}
