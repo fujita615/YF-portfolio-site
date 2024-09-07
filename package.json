@@ -9,7 +9,7 @@
     "watch": "npx webpack --config ./webpack.config.dev.js --watch",
     "servebuild": "npx webpack serve  --config ./webpack.config.prod.js",
     "servedev": "npx webpack serve  --config ./webpack.config.dev.js",
-    "lint": "eslint src/  &&  tsc --noEmit src/**/*.ts",
+    "lint": "eslint src/  &&  tsc --noEmit",
     "lintfix": "prettier --write 'src/**/*' &&  eslint --fix src/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

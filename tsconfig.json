@@ -1,19 +1,32 @@
 {
-  //eslintとtsc（型チェックに使用）用設定
+  //対象とするファイル
       "include": [
-    "src/ts/**/*.ts"
+    "src/**/*.ts"
     ],
-
   "compilerOptions": {
-    // ソースマップを有効化
-    "sourceMap": true,
-    // TSはECMAScript 5に変換
-    "target": "ES6",
-    // TSのモジュールはES Modulesとして出力
-    "module": "ES2015",
-    // 型チェックを厳密モードに設定
-    "strict": true,
-    //型チェック時にデフォルトインポート文がなくてもをエラーにしないよう設定
-    "allowSyntheticDefaultImports": true
-  }
+    "noEmit": true,//型チェックのみに使用(コンパイルはしない)
+    "target": "ES2020",//jsへコンパイル後のjsバージョン
+    "useDefineForClassFields": true,//クラスフィールドに定義を使用するか
+    "module": "ESNext",//jsへコンパイル後のモジュールのバージョン
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],//コンパイル時に使用するライブラリ
+    "skipLibCheck": true,//型定義ファイルはチェック対象外にする
+    "esModuleInterop": true,//cjsモジュールをejsモジュールとして扱えるようヘルパー関数を導入
+
+    /* Linting */
+    "strict": true,//型チェックの厳格モード
+    "noUnusedLocals": true, //宣言されたのに使われていない変数がないかチェック
+    "noUnusedParameters": true,//定義されたのに使われていない関数がないかチェック
+    "noFallthroughCasesInSwitch": true,//switch文にbreakやreturnがあるかチェック
+    //型チェック時にデフォルトインポート文がなくてもエラーにしないよう設定
+    "allowSyntheticDefaultImports": true,
+
+  
+  /* Bundler mode */
+    "moduleResolution": "bundler",//モジュール解決をバンドラーが行う
+    "allowImportingTsExtensions": true,//型チェック時にTS拡張機能のインポートを許可する
+    "isolatedModules": true,//ファイルがそれぞれ独立したモジュールであるか(tsc以外のトランスパイラを使う際の対策)
+    // "moduleDetection": "force",//全てのファイルをモジュールとして扱う
+    "incremental": false, //差分コンパイルをするか
+    "sourceMap": true,// ソースマップを有効化
+  },
 }

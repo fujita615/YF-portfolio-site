@@ -8,7 +8,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   context: path.join(__dirname,"src"), //path指定の起点 
-  entry: [`./index.js` // 生成の大元となるJavaScriptファイル（エントリーポイント）
+  entry: [`./index.ts` // 生成の大元となるJavaScriptファイル（エントリーポイント）
   ],
   // ファイルの出力設定
   output: {
