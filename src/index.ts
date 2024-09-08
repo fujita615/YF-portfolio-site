@@ -1,4 +1,4 @@
 //エントリーポイントとなるファイル
 import './scss/style.scss';
-import './ts/toggle.ts';
+import './ts/AnimeClass';
 import 'core-js/stable';
