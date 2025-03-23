@@ -1,6 +1,6 @@
 # ランディングページ
 ## URL
-https://yf5160.com
+https://flagship.yf5160.com
 
 ## 背景
 ポートフォリオサイトのコードです。
