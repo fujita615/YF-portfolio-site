@@ -1,18 +1,20 @@
 @use 'width-height';
+@use 'sass:map';
 
-//SP（モバイル）を基準としたレスポンシブ用@mixin
+//レスポンシブ用（スマホ）@mixin
+
 @mixin mq($breakpoint: tab) {
-	@media #{map-get(width-height.$points, $breakpoint)} {
+	@media #{map.get(width-height.$points, $breakpoint)} {
 		@content;
 	}
 }
 @mixin mq($breakpoint: pc) {
-	@media #{map-get(width-height.$points, $breakpoint)} {
+	@media #{map.get(width-height.$points, $breakpoint)} {
 		@content;
 	}
 }
 @mixin mq($breakpoint: tab-pc) {
-	@media #{map-get(width-height.$points, $breakpoint)} {
+	@media #{map.get(width-height.$points, $breakpoint)} {
 		@content;
 	}
 }

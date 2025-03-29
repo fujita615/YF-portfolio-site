@@ -28,6 +28,7 @@
 		line-height: 1.5;
 	}
 	&.c-figure--zoom-mask {
+		display: inline-block;
 		position: relative;
 		@media (hover: hover) {
 			&:hover .c-figure__mask::before {

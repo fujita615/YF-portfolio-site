@@ -211,27 +211,61 @@
 						<form action="" method="post" class="p-form">
 							<div class="p-form__input u-focus is-delay05 u-bg-left">
 								<i class="fa-regular fa-circle-user p-form__input-icon"></i>
-								<input type="name" placeholder="お名前" class="c-input c-input--contact u-bg-left" required />
+								<input
+									type="name"
+									id="js-form__name"
+									placeholder="お名前 ※必須"
+									maxlength="30"
+									class="c-input c-input--contact u-bg-left"
+									required
+								/>
 							</div>
+
 							<div class="p-form__input u-focus is-delay10 u-bg-left">
 								<i class="fa-regular fa-envelope p-form__input-icon"></i>
-								<input type="mail" placeholder="mail" class="c-input c-input--contact u-bg-left" required />
+								<input
+									type="email"
+									id="js-form__email"
+									placeholder="email ※必須"
+									class="c-input c-input--contact u-bg-left"
+									required
+								/>
 							</div>
+
 							<div class="p-form__textarea u-focus is-delay15 u-bg-left">
-								<textarea id="" cols="30" rows="10" placeholder="お問い合わせ内容"
-									class="c-textarea c-textarea--contact u-bg-left" required></textarea>
+								<textarea
+									id="js-form__text"
+									cols="30"
+									rows="10"
+									maxlength="500"
+									placeholder="お問い合わせ内容  500文字まで ※必須"
+									class="c-textarea c-textarea--contact u-bg-left"
+									required
+								></textarea>
 							</div>
 							<p class="u-focus c-paragraph c-paragraph--article">
 								上記内容でよろしければ <strong>確認しました</strong> と入力してください
 							</p>
 							<div class="p-form__input u-focus is-delay10 u-bg-left">
 								<i class="fa-solid fa-pen-to-square p-form__input-icon"></i>
-								<input type="text" placeholder="確認しました" class="c-input c-input--contact u-bg-left" required />
+								<input
+									type="text"
+									id="js-form__confirm"
+									pattern="確認しました"
+									placeholder="確認しました"
+									class="c-input c-input--contact u-bg-left"
+									required
+								/>
 							</div>
-							<button type="submit" class="c-button c-button--form u-focus is-delay20">
-								<span class="c-button__text">送信する</span>
-								<span class="c-button__hover-text c-button__hover-text--form">
-									<i class="fa-regular faa-horizontal animated-hover fa-paper-plane"></i>
+
+							<button
+								type="submit"
+								id="js-form__button"
+								class="c-button c-button--form u-focus is-delay20"
+							>
+								<span class="c-button__text js-form__button">送信する</span>
+								<span class="c-button__hover-text c-button__hover-text--form js-form__button">
+									<i class="fa-regular faa-horizontal animated-hover fa-paper-plane js-form__button"></i>
 								</span>
 							</button>
 						</form>

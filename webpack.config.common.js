@@ -1,7 +1,6 @@
 //webpack共通設定
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -96,11 +95,6 @@ module.exports = {
       template: `${__dirname}/src/policy.html`,
       filename: `${__dirname}/dist/policy.html`,
       inject:'body'
-    }),
-    //外部ライブラリ(jquery)を変数で読み込む設定
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
     }),
     new MiniCssExtractPlugin(),
     new RemoveEmptyScriptsPlugin(),

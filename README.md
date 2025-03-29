@@ -1,4 +1,4 @@
-# ランディングページ
+# ランディングページ ver.2
 ## URL
 https://flagship.yf5160.com
 
@@ -9,7 +9,7 @@ https://flagship.yf5160.com
 ## 使用言語
 - html
 - css(sass/flocss設計)
-- javascript(typescript/jquery)
+- javascript(typescript)
 
 ## ビルドツール
 ### モジュールバンドラ
@@ -25,5 +25,8 @@ https://flagship.yf5160.com
 ### フォーマッター
 - Prettier
 
+## ver.1からの変更点
+   - Jqueryを削除
+   - フォーム送信機能に多重送信防止機能を実装
 
 
